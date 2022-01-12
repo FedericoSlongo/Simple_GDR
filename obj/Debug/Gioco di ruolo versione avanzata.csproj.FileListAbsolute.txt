@@ -1,8 +1,0 @@
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\bin\Debug\Gioco di ruolo versione avanzata.exe.config
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\bin\Debug\Gioco di ruolo versione avanzata.exe
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\bin\Debug\Gioco di ruolo versione avanzata.pdb
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\obj\Debug\Gioco di ruolo versione avanzata.csproj.AssemblyReference.cache
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\obj\Debug\Gioco di ruolo versione avanzata.csproj.SuggestedBindingRedirects.cache
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\obj\Debug\Gioco di ruolo versione avanzata.csproj.CoreCompileInputs.cache
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\obj\Debug\Gioco di ruolo versione avanzata.exe
-C:\Users\feder\source\repos\Gioco di ruolo versione avanzata\Gioco di ruolo versione avanzata\obj\Debug\Gioco di ruolo versione avanzata.pdb
