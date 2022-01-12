@@ -1,0 +1,7 @@
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\bin\Debug\Simple GDR.exe.config
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\bin\Debug\Simple GDR.exe
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\bin\Debug\Simple GDR.pdb
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\obj\Debug\Simple GDR.csproj.AssemblyReference.cache
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\obj\Debug\Simple GDR.csproj.CoreCompileInputs.cache
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\obj\Debug\Simple GDR.exe
+C:\Users\fslongo\source\repos\Simple GDR\Simple GDR\obj\Debug\Simple GDR.pdb
