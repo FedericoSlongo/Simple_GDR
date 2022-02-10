@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,44 @@ namespace Simple_GDR
     internal class Program
     {
         static void Main(string[] args)
+        {
+            bool lingua_valida = false;
+            string lingua;
+
+            //language selection
+            Console.WriteLine("Insert what language you'll like the app to use (English or Italian)");
+            do
+            {
+                lingua = Console.ReadLine().ToLower();
+                switch (lingua)
+                {
+                    case "english":
+                        Console.WriteLine("Right now it's not a valid language but it will be updated");
+                        break;
+                    case "e":
+                        Console.WriteLine("Right now it's not a valid language but it will be updated");
+                        break;
+                    case "italian":
+                        Console.Clear();
+                        ita();
+                        lingua_valida = true;
+                        break;
+                    case "i":
+                        Console.Clear();
+                        ita();
+                        lingua_valida = true;
+                        break;
+                    default:
+                        lingua_valida = false;
+                        Console.WriteLine("The language isn't valid");
+                        break;
+                }
+            } while (!lingua_valida);
+
+            Console.ReadKey();
+        }
+
+        static void ita()
         {
             bool vince_mostro = false, vince_eroe = false, tipo_di_erore_valido = false, primo_ciclo = true;
             int vita_mostro = 10, vita_eroe = 10, numero_casuale, tipo_di_mostro, vita_rigen_poz;
@@ -42,6 +80,9 @@ namespace Simple_GDR
                         break;
                 }
             }
+
+            Console.Clear();
+
             vita_rigen_poz = vita_eroe;
 
             tipo_di_mostro = r.Next(0, 3);
@@ -117,9 +158,6 @@ namespace Simple_GDR
                 Console.WriteLine($"Il mostro ti ha fatto {numero_casuale}");
                 vita_eroe -= numero_casuale;
             }
-
-
-            Console.ReadKey();
         }
     }
 }
