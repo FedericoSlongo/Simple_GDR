@@ -14,7 +14,7 @@ namespace Simple_GDR
             string lingua;
 
             //language selection
-            Console.WriteLine("Insert what language you'll like the app to use (English or Italian)");
+            Console.Write("Insert what language you'll like the app to use (English or Italian): ");
             do
             {
                 lingua = Console.ReadLine().ToLower();
@@ -158,6 +158,10 @@ namespace Simple_GDR
                 Console.WriteLine($"Il mostro ti ha fatto {numero_casuale}");
                 vita_eroe -= numero_casuale;
             }
+        }
+        static void eng()
+        {
+
         }
     }
 }
