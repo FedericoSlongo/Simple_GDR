@@ -55,7 +55,7 @@ namespace Simple_GDR
 
             while (!tipo_di_erore_valido)
             {
-                Console.WriteLine("Inserire il tipo di erore si puo scegliere tra Guerriero (20hp), Mago (8), Ladro (10), Arciere (15hp)");
+                Console.WriteLine("Inserire il tipo di eroe si puo scegliere tra Guerriero (20hp), Mago (8), Ladro (10), Arciere (15hp)");
                 tipo_di_eroe = Console.ReadLine().ToLower();
                 switch (tipo_di_eroe)
                 {
@@ -161,7 +161,116 @@ namespace Simple_GDR
         }
         static void eng()
         {
+            bool vince_mostro = false, vince_eroe = false, tipo_di_erore_valido = false, primo_ciclo = true;
+            int vita_mostro = 10, vita_eroe = 10, numero_casuale, tipo_di_mostro, vita_rigen_poz;
+            string tipo_di_eroe;
+            Random r = new Random();
 
+            while (!tipo_di_erore_valido)
+            {
+                Console.WriteLine("Insert the type of hero you wanna be between Warrior (20hp), Wizard (8), Thief (10), Archer (15hp)");
+                tipo_di_eroe = Console.ReadLine().ToLower();
+                switch (tipo_di_eroe)
+                {
+                    case "warrior":
+                        tipo_di_erore_valido = true;
+                        vita_eroe = 20;
+                        break;
+                    case "wizard":
+                        tipo_di_erore_valido = true;
+                        vita_eroe = 8;
+                        break;
+                    case "thief":
+                        tipo_di_erore_valido = true;
+                        vita_eroe = 10;
+                        break;
+                    case "archer":
+                        tipo_di_erore_valido = true;
+                        vita_eroe = 15;
+                        break;
+                    default:
+                        Console.WriteLine($"{tipo_di_eroe} it's not a valid type, please select between valid heroes");
+                        break;
+                }
+            }
+
+            Console.Clear();
+
+            vita_rigen_poz = vita_eroe;
+
+            tipo_di_mostro = r.Next(0, 3);
+
+            switch (tipo_di_mostro)
+            {
+                case 0:
+                    Console.WriteLine("You encounter a Goblin");
+                    vita_mostro = 5;
+                    break;
+                case 1:
+                    Console.WriteLine("You encounter a scheleton");
+                    vita_mostro = 10;
+                    break;
+                case 2:
+                    Console.WriteLine("You encounter a dragon");
+                    vita_mostro = 20;
+                    break;
+                default:
+                    Console.WriteLine("Un errore catastrofico, il numero non è valido");
+                    break;
+            }
+
+            while (vince_eroe || !vince_mostro)
+            {
+                if (vita_mostro < 0)
+                {
+                    Console.WriteLine($"The monster died you had {vita_eroe} heart left");
+                    vince_eroe = true;
+                    break;
+                }
+                if (vita_eroe < 0)
+                {
+                    Console.WriteLine($"The monster defeat you (the program really hates you), the life remeaning to the monster was {vita_mostro}");
+                    vince_mostro = true;
+                    break;
+                }
+
+                if (primo_ciclo)
+                {
+                    primo_ciclo = false;
+                }
+                else
+                {
+                    if (r.Next(101) < 5)
+                    {
+                        if (vita_eroe == vita_rigen_poz)
+                        {
+                            Console.WriteLine("You found a regeneration potion, but you arledy have full healt");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You found a regeneration potion and you have all you're hearts back");
+                            vita_eroe = vita_rigen_poz;
+                        }
+                    }
+                }
+                Console.WriteLine($"You have {vita_eroe}, the monster has {vita_mostro}");
+                numero_casuale = r.Next(1, 7);
+                if (r.Next(101) < 10)
+                {
+                    Console.WriteLine("You have done critical damage");
+                    numero_casuale *= 2;
+                }
+                Console.WriteLine($"You did {numero_casuale}");
+                vita_mostro -= numero_casuale;
+                numero_casuale = r.Next(1, 7);
+                if (r.Next(101) < 10)
+                {
+                    Console.WriteLine("The monster did a critical damage");
+                    numero_casuale *= 2;
+                }
+                Console.WriteLine($"The monster did {numero_casuale}");
+                vita_eroe -= numero_casuale;
+            }
         }
     }
 }
