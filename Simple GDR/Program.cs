@@ -21,15 +21,25 @@ namespace Simple_GDR
                 switch (lingua)
                 {
                     case "english":
-                        Console.WriteLine("Right now it's not a valid language but it will be updated");
+                        Console.Clear();
+                        eng();
+                        break;
+                    case "en":
+                        Console.Clear();
+                        eng();
                         break;
                     case "e":
-                        Console.WriteLine("Right now it's not a valid language but it will be updated");
+                        Console.Clear();
+                        eng();
                         break;
                     case "italian":
                         Console.Clear();
                         ita();
                         lingua_valida = true;
+                        break;
+                    case "it":
+                        Console.Clear();
+                        ita();
                         break;
                     case "i":
                         Console.Clear();
@@ -50,7 +60,7 @@ namespace Simple_GDR
         {
             bool vince_mostro = false, vince_eroe = false, tipo_di_erore_valido = false, primo_ciclo = true;
             int vita_mostro = 10, vita_eroe = 10, numero_casuale, tipo_di_mostro, vita_rigen_poz;
-            string tipo_di_eroe;
+            string tipo_di_eroe, lang = "ita";
             Random r = new Random();
 
             while (!tipo_di_erore_valido)
@@ -129,24 +139,14 @@ namespace Simple_GDR
                 {
                     if (r.Next(101) < 5)
                     {
-                        if (vita_eroe == vita_rigen_poz)
-                        {
-                            Console.WriteLine("Hai trovato una pozione di rigenerazione ma hai gia la vita al massimo");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Hai trovato una pozione che ti rigenera la vita");
-                            vita_eroe = vita_rigen_poz;
-                        }
+                        vita_eroe = pozione(vita_eroe, vita_rigen_poz);
                     }
                 }
                 Console.WriteLine($"Tu hai {vita_eroe}, il mostro ha {vita_mostro}");
                 numero_casuale = r.Next(1, 7);
-                if (r.Next(101) < 10)
-                {
-                    Console.WriteLine("Hai fatto un danno critico");
-                    numero_casuale *= 2;
-                }
+
+                numero_casuale = critical_damage(lang, r, numero_casuale);
+
                 Console.WriteLine($"Tu hai fatto {numero_casuale}");
                 vita_mostro -= numero_casuale;
                 numero_casuale = r.Next(1, 7);
@@ -159,11 +159,47 @@ namespace Simple_GDR
                 vita_eroe -= numero_casuale;
             }
         }
+
+        static int pozione(int vita_eroe, int vita_rigen_poz)
+        {
+            if (vita_eroe == vita_rigen_poz)
+            {
+                Console.WriteLine("Hai trovato una pozione di rigenerazione ma hai gia la vita al massimo");
+                return vita_eroe;
+            }
+            else
+            {
+                Console.WriteLine("Hai trovato una pozione che ti rigenera la vita");
+                vita_eroe = vita_rigen_poz;
+                return vita_rigen_poz;
+            }
+        }
+
+        static int critical_damage(string lang, Random r, int numero_casuale)
+        {
+            if (lang == "ita") {
+                if (r.Next(101) < 10)
+                {
+                    Console.WriteLine("Hai fatto un danno critico");
+                    numero_casuale *= 2;
+                }
+            } else {
+                if (r.Next(101) < 10)
+                {
+                    Console.WriteLine("You have done critical damage");
+                    numero_casuale *= 2;
+                }
+            }
+            return numero_casuale;
+        }
+
+
+
         static void eng()
         {
             bool vince_mostro = false, vince_eroe = false, tipo_di_erore_valido = false, primo_ciclo = true;
             int vita_mostro = 10, vita_eroe = 10, numero_casuale, tipo_di_mostro, vita_rigen_poz;
-            string tipo_di_eroe;
+            string tipo_di_eroe, lang = "en";
             Random r = new Random();
 
             while (!tipo_di_erore_valido)
@@ -255,11 +291,9 @@ namespace Simple_GDR
                 }
                 Console.WriteLine($"You have {vita_eroe}, the monster has {vita_mostro}");
                 numero_casuale = r.Next(1, 7);
-                if (r.Next(101) < 10)
-                {
-                    Console.WriteLine("You have done critical damage");
-                    numero_casuale *= 2;
-                }
+
+                numero_casuale = critical_damage(lang, r, numero_casuale);
+
                 Console.WriteLine($"You did {numero_casuale}");
                 vita_mostro -= numero_casuale;
                 numero_casuale = r.Next(1, 7);
