@@ -139,7 +139,7 @@ namespace Simple_GDR
                 {
                     if (r.Next(101) < 5)
                     {
-                        vita_eroe = pozione(vita_eroe, vita_rigen_poz);
+                        vita_eroe = pozione(vita_eroe, vita_rigen_poz, lang);
                     }
                 }
                 Console.WriteLine($"Tu hai {vita_eroe}, il mostro ha {vita_mostro}");
@@ -160,18 +160,35 @@ namespace Simple_GDR
             }
         }
 
-        static int pozione(int vita_eroe, int vita_rigen_poz)
+        static int pozione(int vita_eroe, int vita_rigen_poz, string lang)
         {
-            if (vita_eroe == vita_rigen_poz)
+            if (lang == "en")
             {
-                Console.WriteLine("Hai trovato una pozione di rigenerazione ma hai gia la vita al massimo");
-                return vita_eroe;
+                if (vita_eroe == vita_rigen_poz)
+                {
+                    Console.WriteLine("You found a regeneration potion, but you arledy have full healt");
+                    return vita_rigen_poz;
+                }
+                else
+                {
+                    Console.WriteLine("You found a regeneration potion and you have all you're hearts back");
+                    vita_eroe = vita_rigen_poz;
+                    return vita_rigen_poz;
+                }
             }
             else
             {
-                Console.WriteLine("Hai trovato una pozione che ti rigenera la vita");
-                vita_eroe = vita_rigen_poz;
-                return vita_rigen_poz;
+                if (vita_eroe == vita_rigen_poz)
+                {
+                    Console.WriteLine("Hai trovato una pozione di rigenerazione ma hai gia la vita al massimo");
+                    return vita_eroe;
+                }
+                else
+                {
+                    Console.WriteLine("Hai trovato una pozione che ti rigenera la vita");
+                    vita_eroe = vita_rigen_poz;
+                    return vita_rigen_poz;
+                }
             }
         }
 
@@ -278,15 +295,7 @@ namespace Simple_GDR
                 {
                     if (r.Next(101) < 5)
                     {
-                        if (vita_eroe == vita_rigen_poz)
-                        {
-                            Console.WriteLine("You found a regeneration potion, but you arledy have full healt");
-                        }
-                        else
-                        {
-                            Console.WriteLine("You found a regeneration potion and you have all you're hearts back");
-                            vita_eroe = vita_rigen_poz;
-                        }
+                        vita_eroe = pozione(vita_eroe, vita_rigen_poz, lang);
                     }
                 }
                 Console.WriteLine($"You have {vita_eroe}, the monster has {vita_mostro}");
